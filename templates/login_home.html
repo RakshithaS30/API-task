@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEATHER INFORMATION</title>
+    <script>
+        async function getWeather(page){
+            alert(page);
+        }
+        </script>
+</head>
+<body>
+    <h1>WEATHER INFORMATION</h1>
+    {% if login %}
+    You are logged in as <strong>{{ session['email'] }}</strong> <br /><br />
+    <a href="/weather?page=1"><button type="hidden">1 - 10 cities</button></a>
+    <br /><br \>
+    <a href="/weather?page=2"><button type="hidden">10 - 20 cities</button></a>
+    <br /><br \>
+    <a href="/weather?page=3"><button type="hidden">20 -30 cities</button></a><br /><br />
+    <a href={{ url_for('logout') }}>logout</a><br \>
+    {%else%}
+    Please login here {{ session['email'] }} <br />
+    <a href={{ url_for('login') }}>login</a><br \>
+    {%endif %}
+    <br />
+</body>
+</html>
